@@ -31,8 +31,8 @@ cat <<EOF > package.json
     "clean": "npx hardhat clean",
     "compile": "npx hardhat compile",
     "coverage": "npx hardhat coverage",
-    "deploy": "npx hardhat run scripts/deploy.ts",
-    "node": "npx hardhat node"
+    "deploy": "npx hardhat run scripts/deploy.ts --network localhost",
+    "serve": "npx hardhat node"
   }
 }
 EOF
@@ -89,7 +89,6 @@ cat <<EOF > .gitignore
 /cache
 /coverage
 /node_modules
-/typechain-types
 
 /.env
 /coverage.json
