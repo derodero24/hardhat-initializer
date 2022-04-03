@@ -12,7 +12,7 @@ lower_app_name=`echo $1 | tr '[:upper:]' '[:lower:]'`
 cat <<EOF > package.json
 {
   "name": "$lower_app_name",
-  "version": "0.1.0",
+  "version": "0.1.0"
 }
 EOF
 
@@ -50,12 +50,12 @@ const config: HardhatUserConfig = {
   networks: {
     rinkeby: {
       url: RINKEBY_URL,
-      accounts: [`0x${PRIVATE_KEY}`],
+      accounts: [\`0x\${PRIVATE_KEY}\`],
     },
     shibuya: {
       url: 'https://rpc.shibuya.astar.network:8545',
       chainId: 81,
-      accounts: [`0x${PRIVATE_KEY}`],
+      accounts: [\`0x\${PRIVATE_KEY}\`],
     },
   },
 };
@@ -149,7 +149,7 @@ PRIVATE_KEY="<MetaMask private key>"
 PUBLIC_KEY="<MetaMask public key>"
 EOF
 
-mkdir src contracts
+mkdir contracts
 cat <<EOF > contracts/Greeter.sol
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.9;
@@ -175,7 +175,7 @@ contract Greeter {
 }
 EOF
 
-mkdir src scripts
+mkdir scripts
 cat <<EOF > scripts/deploy.ts
 import { ethers } from 'hardhat';
 
@@ -192,7 +192,7 @@ main().catch(error => {
 });
 EOF
 
-mkdir src test
+mkdir test
 cat <<EOF > test/index.ts
 import { expect } from 'chai';
 import { ethers } from 'hardhat';
