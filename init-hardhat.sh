@@ -12,14 +12,12 @@ cat <<EOF > README.md
 # $1
 
 \`\`\`shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-npx hardhat help
-npx hardhat coverage
-npx hardhat run scripts/deploy.ts
+npm run accounts
+npm run clean
+npm run compile
+npm run coverage
+npm run deploy
+npm run node
 \`\`\`
 EOF
 
@@ -27,7 +25,15 @@ lower_app_name=`echo $1 | tr '[:upper:]' '[:lower:]'`
 cat <<EOF > package.json
 {
   "name": "$lower_app_name",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "scripts": {
+    "accounts": "npx hardhat accounts",
+    "clean": "npx hardhat clean",
+    "compile": "npx hardhat compile",
+    "coverage": "npx hardhat coverage",
+    "deploy": "npx hardhat run scripts/deploy.ts",
+    "node": "npx hardhat node"
+  }
 }
 EOF
 
