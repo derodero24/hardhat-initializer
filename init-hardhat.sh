@@ -8,6 +8,21 @@ fi
 mkdir $1
 cd $1
 
+cat <<EOF > README.md
+# $1
+
+\`\`\`shell
+npx hardhat accounts
+npx hardhat compile
+npx hardhat clean
+npx hardhat test
+npx hardhat node
+npx hardhat help
+npx hardhat coverage
+npx hardhat run scripts/deploy.ts
+\`\`\`
+EOF
+
 lower_app_name=`echo $1 | tr '[:upper:]' '[:lower:]'`
 cat <<EOF > package.json
 {
