@@ -17,7 +17,8 @@ npm run clean
 npm run compile
 npm run coverage
 npm run deploy
-npm run node
+npm run serve
+npm run test
 \`\`\`
 EOF
 
@@ -32,7 +33,8 @@ cat <<EOF > package.json
     "compile": "npx hardhat compile",
     "coverage": "npx hardhat coverage",
     "deploy": "npx hardhat run scripts/deploy.ts --network localhost",
-    "serve": "npx hardhat node"
+    "serve": "npx hardhat node",
+    "test": "npx hardhat test"
   }
 }
 EOF
